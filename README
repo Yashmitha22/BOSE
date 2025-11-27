@@ -1,0 +1,43 @@
+# PDF → RAG → QLoRA Model
+
+This project builds a small language model trained on your own PDF datasheets.  
+The pipeline performs:
+
+1. Extract text from PDF files  
+2. Split text into chunks  
+3. Create embeddings  
+4. Build a FAISS search index  
+5. Generate a synthetic SFT dataset  
+6. Fine-tune a base model using QLoRA  
+7. Run inference using RAG or without RAG
+
+---
+
+## 🚀 Features
+
+- PDF text extraction  
+- Text chunking  
+- Embedding generation with MiniLM  
+- FAISS vector search  
+- QLoRA finetuning on Qwen2.5-1.5B  
+- Simple inference script
+
+---
+
+## Main Files
+
+- `pdf_texts/` – extracted PDF text  
+- `all_chunks.jsonl` – chunked data  
+- `faiss_index.idx` – FAISS index  
+- `faiss_meta.json` – metadata  
+- `sft_dataset.jsonl` – synthetic training data  
+- `gemma-qlora-adapter/` – LoRA adapter  
+- `train_qlora.py` – model training  
+- `inference.py` – answering questions
+
+---
+
+##  Installation
+
+```bash
+pip install transformers peft bitsandbytes sentence-transformers faiss-cpu pdfplumber
